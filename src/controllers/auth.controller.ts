@@ -28,7 +28,6 @@ export class AuthController {
     try {
       return res.json({ ...(await this.authService.signUp(req.body)) });
     } catch (error) {
-      console.error('error:', (error as any).code);
       return res.status(500).send((error as Error).message);
     }
   }
