@@ -5,7 +5,7 @@ import { Service } from 'typedi';
 
 @Service()
 export class TokenRepository implements IRepository<Token> {
-  constructor(private databaseInstance: Database<Token>) { }
+  constructor(private databaseInstance: Database<Token>) {}
 
   async findAllTokenByUserId(userId: number): Promise<Token[]> {
     const connection = this.databaseInstance.getConnection()('tokens');

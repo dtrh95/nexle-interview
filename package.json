@@ -6,7 +6,7 @@
   "scripts": {
     "test": "test",
     "start:dev": "npx nodemon",
-    "lint": "eslint . --ext .ts",
+    "lint": "eslint . --ext .ts --fix",
     "start": "npm run build && node build/index.js",
     "build": "rimraf ./build && tsc"
   },
