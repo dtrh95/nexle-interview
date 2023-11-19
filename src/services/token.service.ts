@@ -1,6 +1,6 @@
-import { CreateTokenDto } from '@dtos/token/create-token.dto';
-import { Token } from '@models/token.model';
-import { TokenRepository } from '@repositories/token.repository';
+import { CreateTokenDto } from '../dtos/token/create-token.dto';
+import { Token } from '../models/token.model';
+import { TokenRepository } from '../repositories/token.repository';
 import { sign } from 'jsonwebtoken';
 import { Service } from 'typedi';
 
@@ -16,25 +16,25 @@ export class TokenService {
     }
 
     const refreshToken = sign({ userId: dto.userId }, JWT_SECRET, {
-      expiresIn: JWT_REFRESH_TOKEN_EXPIRATION_TIME,
+      expiresIn: `${JWT_REFRESH_TOKEN_EXPIRATION_TIME}s`,
     });
 
     return await this.tokenRepository.insert({
       userId: dto.userId,
       refreshToken,
+      updatedAt: new Date(),
     });
   }
 
   generateToken(dto: CreateTokenDto): string {
-    const { JWT_ACCESS_TOKEN_EXPIRATION_TIME, JWT_SERVICE: JWT_SECRET } =
-      process.env;
+    const { JWT_ACCESS_TOKEN_EXPIRATION_TIME, JWT_SECRET } = process.env;
 
     if (!JWT_SECRET) {
       throw Error('The secret key is not existed');
     }
 
     const accessToken = sign({ userId: dto.userId }, JWT_SECRET, {
-      expiresIn: JWT_ACCESS_TOKEN_EXPIRATION_TIME,
+      expiresIn: `${JWT_ACCESS_TOKEN_EXPIRATION_TIME}s`,
     });
 
     return accessToken;

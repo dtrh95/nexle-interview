@@ -1,6 +1,6 @@
 import Knex from 'knex';
 import { Service } from 'typedi';
-import config from 'knexfile';
+import config from '../../knexfile';
 
 @Service()
 export class Database<T extends Record<string, any>> {

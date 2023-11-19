@@ -37,5 +37,5 @@
     }
   },
   "typeRoots": ["./node_modules/@types", "./@types"],
-  "include": ["src", "@types", "knexfile.ts"]
+  "include": ["src", "@types"]
 }

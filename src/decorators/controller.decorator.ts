@@ -1,4 +1,4 @@
-import { ROUTE_METADATA_KEY } from '@constants';
+import { ROUTE_METADATA_KEY } from '../constants';
 import { NextFunction, Request, Response } from 'express';
 
 export type MiddlewareFunction = (

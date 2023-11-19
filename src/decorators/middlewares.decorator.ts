@@ -1,5 +1,8 @@
-import { CLASS_MIDDLEWARE_METADATA_KEY, ROUTE_METADATA_KEY } from '@constants';
-import { IRouteDefinition } from '@interfaces/route-definition.interface';
+import {
+  CLASS_MIDDLEWARE_METADATA_KEY,
+  ROUTE_METADATA_KEY,
+} from '../constants';
+import { IRouteDefinition } from '../interfaces/route-definition.interface';
 import { NextFunction, Request, Response } from 'express';
 
 export type MiddlewareFunction = (

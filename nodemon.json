@@ -3,5 +3,5 @@
   "ext": ".ts,.js",
   "verbose": true,
   "ignore": [],
-  "exec": "npx ts-node -r tsconfig-paths/register -r reflect-metadata ./src/index.ts"
+  "exec": "npx tsc && node build/src/index.js"
 }

@@ -1,6 +1,6 @@
-import { IRepository } from '@interfaces/repository.interface';
-import { User } from '@models/user.model';
-import { Database } from '@database';
+import { IRepository } from '../interfaces/repository.interface';
+import { User } from '../models/user.model';
+import { Database } from '../database';
 import { Service } from 'typedi';
 
 @Service()

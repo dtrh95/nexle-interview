@@ -1,5 +1,5 @@
-import { ROUTE_METADATA_KEY } from '@constants';
-import { IRouteDefinition } from '@interfaces/route-definition.interface';
+import { ROUTE_METADATA_KEY } from '../constants';
+import { IRouteDefinition } from '../interfaces/route-definition.interface';
 
 export const Post = (path: string): MethodDecorator => {
   return (target, propertyKey) => {

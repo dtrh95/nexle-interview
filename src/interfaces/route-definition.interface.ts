@@ -1,4 +1,4 @@
-import { MiddlewareFunction } from '@decorators/controller.decorator';
+import { MiddlewareFunction } from '../decorators/controller.decorator';
 
 export type RequestMethod = 'get' | 'post' | 'delete' | 'options' | 'put';
 

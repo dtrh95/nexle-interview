@@ -3,8 +3,7 @@
 /**
  * @type { Object.<string, import("knex").Knex.Config> }
  */
-
-import dotenv from 'dotenv';
+import * as dotenv from 'dotenv';
 import type { Knex } from 'knex';
 import 'ts-node/register';
 

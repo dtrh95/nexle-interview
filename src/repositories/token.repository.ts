@@ -1,16 +1,16 @@
-import { Database } from '@database';
-import { IRepository } from '@interfaces/repository.interface';
-import { Token } from '@models/token.model';
+import { Database } from '../database';
+import { IRepository } from '../interfaces/repository.interface';
+import { Token } from '../models/token.model';
 import { Service } from 'typedi';
 
 @Service()
 export class TokenRepository implements IRepository<Token> {
-  constructor(private databaseInstance: Database<Token>) {}
+  constructor(private databaseInstance: Database<Token>) { }
 
   async findAllTokenByUserId(userId: number): Promise<Token[]> {
-    const databaseInstance = this.databaseInstance.getConnection()('tokens');
+    const connection = this.databaseInstance.getConnection()('tokens');
 
-    return await databaseInstance.where('id', userId).select('*');
+    return await connection.where('id', userId).select('*');
   }
 
   async insert(payload: Partial<Token>): Promise<Token | undefined> {
@@ -25,6 +25,19 @@ export class TokenRepository implements IRepository<Token> {
     return this.databaseInstance
       .getConnection()('tokens')
       .where('id', id)
+      .first();
+  }
+
+  async deleteByUserId(userId: number): Promise<void> {
+    const connection = this.databaseInstance.getConnection()('tokens');
+
+    await connection.where('userId', userId).delete();
+  }
+
+  async findByToken(token: string | undefined): Promise<Token | undefined> {
+    return this.databaseInstance
+      .getConnection()('tokens')
+      .where('refreshToken', token)
       .first();
   }
 }

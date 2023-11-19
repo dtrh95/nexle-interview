@@ -1,5 +1,5 @@
-import { SignInDto } from '@dtos/auth/sign-in.dto';
-import { getValidationMessages } from '@helpers/get-validation-messages';
+import { SignInDto } from '../dtos/auth/sign-in.dto';
+import { getValidationMessages } from '../helpers/get-validation-messages';
 import { validateSync } from 'class-validator';
 import { NextFunction, Request, Response } from 'express';
 
