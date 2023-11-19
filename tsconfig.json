@@ -1,0 +1,41 @@
+{
+  "compilerOptions": {
+    "target": "es2020",
+    "lib": ["es6"],
+    "module": "commonjs",          
+    "resolveJsonModule": true,    
+    "allowJs": true,             
+    "outDir": "build",          
+    "esModuleInterop": true,   
+    "moduleResolution": "node",
+    "forceConsistentCasingInFileNames": true,     
+    "strictPropertyInitialization": false,
+    "strict": true,                              
+    "noImplicitAny": true,                      
+    "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "baseUrl": "./",
+    "paths": {
+      "@constants": ["src/constants/index"],
+      "@abstracts/*": ["src/abstracts/*"],
+      "@dtos/*": ["src/dtos/*"],
+      "@helpers/*": ["src/helpers/*"],
+      "@configuration": ["src/configuration"],
+      "@controllers/*": ["src/controllers/*"],
+      "@decorators/*": ["src/decorators/*"],
+      "@entities/*": ["src/entities/*"],
+      "@repositories/*": ["src/repositories/*"],
+      "@middlewares/*": ["src/middlewares/*"],
+      "@interceptors/*": ["src/interceptors/*"],
+      "@interfaces/*": ["src/interfaces/*"],
+      "@modules/*": ["src/modules/*"],
+      "@services/*": ["src/services/*"],
+      "@models/*": ["src/models/*"],
+      "knexfile": ["knexfile.ts"],
+      "@database": ["src/database/index.ts"]
+    }
+  },
+  "typeRoots": ["./node_modules/@types", "./@types"],
+  "include": ["src", "@types", "knexfile.ts"]
+}
